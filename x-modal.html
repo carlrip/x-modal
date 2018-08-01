@@ -10,6 +10,7 @@
   <h3>Modal Test</h3>
 
   <button class="open">Open</button>
+
   <x-modal title="Important!" visible>
     <p>This is some really important stuff</p>
   </x-modal>
@@ -44,7 +45,7 @@
       }
 
       get title() {
-        return this.hasAttribute('title');
+        return this.getAttribute('title');
       }
 
       set title(value) {
@@ -78,7 +79,6 @@
       }
 
       _render() {
-        const title = this.getAttribute("title") === null ? "" : this.getAttribute("title");
         const wrapperClass = this.getAttribute("visible") === null ? "wrapper" : "wrapper visible";
         const container = document.createElement("div");
         container.innerHTML = `
@@ -137,7 +137,7 @@
           </style>
           <div class='${wrapperClass}'>
             <div class='modal'>
-              <span class='title'>${title}</span>
+              <span class='title'>${this.title}</span>
               <div class='content'>
                 <slot></slot>
               </div>
