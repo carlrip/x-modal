@@ -79,7 +79,7 @@
       }
 
       _render() {
-        const wrapperClass = this.getAttribute("visible") === null ? "wrapper" : "wrapper visible";
+        const wrapperClass = this.visible ? "wrapper visible" : "wrapper";
         const container = document.createElement("div");
         container.innerHTML = `
           <style>
